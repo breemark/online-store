@@ -11,7 +11,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/app.css">
     
-    <title> {{#if title}} {{title}} {{else}} Online Store {{/if}} </title>
+    <title> {{#if viewData.title}} {{viewData.title}} {{else}} Online Store {{/if}} </title>
   </head>
   <body>
 
@@ -34,7 +34,7 @@
 
     <header class="masthead bg-primary text-white text-center py-4">
         <div class="container d-flex align-items-center flex-column">
-        <h2>{{#if subtitle}}{{ subtitle }}{{else}}A Nest Online Store{{/if}}</h2>
+        <h2>{{#if viewData.subtitle}}{{ viewData.subtitle }}{{else}}A Nest Online Store{{/if}}</h2>
         </div>
     </header>
     <!-- header -->
