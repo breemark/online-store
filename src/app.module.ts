@@ -16,7 +16,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   ],
   controllers: [AppController, ProductsController],
 })
-
 export class AppModule {}
 
 //TODO find a better way to make the TypeORM config. What is the best way to do this?
