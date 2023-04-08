@@ -12,8 +12,8 @@ import { Product } from './models/product.entity';
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: process.env.DATABASE_NAME,
-      entities: [],
-      synchronize: true,
+      entities: ['dist/**/*.entity{.ts,.js}'], // This generates the DB tables
+      synchronize: true,    // This synchronizes the DB
     }),
     TypeOrmModule.forFeature([Product]),
   ],

@@ -18,6 +18,7 @@ export class ProductsController {
   }
 
   @Get('/:id')
+  //@Render('products/show')
   async show(@Param() params, @Res() response) {
     const product = await this.productsService.findOne(params.id);
     if (product===undefined){
@@ -27,9 +28,6 @@ export class ProductsController {
     viewData['title'] = product.getName() + ' - Online Store';
     viewData['subtitle'] = product.getName() + ' - Product Information';
     viewData['product'] = product;
-    return {
-      viewData: viewData,
-    };
     return response.render('products/show', {viewData: viewData});
   }
 }
