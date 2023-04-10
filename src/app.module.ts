@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { ProductsController } from './products.controller';
@@ -7,6 +7,8 @@ import { ProductsService } from './models/products.service';
 import { Product } from './models/product.entity';
 import { AdminModule } from './admin/admin.module';
 
+
+@Global()   // What exactly is this? p.87
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -21,7 +23,9 @@ import { AdminModule } from './admin/admin.module';
   ],
   controllers: [AppController, ProductsController],
   providers: [ProductsService],
+  exports: [ProductsService],
 })
+
 export class AppModule {}
 
 //TODO find a better way to make the TypeORM config. What is the best way to do this?
